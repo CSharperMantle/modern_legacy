@@ -1,0 +1,44 @@
+[package]
+name = "modern_legacy"
+version = "0.2.1"
+edition = "2021"
+
+[dependencies]
+num_enum = "0.7.2"
+proc-macro2 = "1.0.79"
+quote = "1.0.35"
+syn = "2.0.53"
+
+[[bin]]
+name = "modern_legacy"
+path = "src/main.rs"
+
+[lib]
+name = "modern_legacy_macros"
+path = "src/macros/lib.rs"
+proc-macro = true
+
+[profile.release]
+opt-level = 3
+debug = false
+debug-assertions = false
+overflow-checks = false
+lto = "fat"
+panic = "unwind"
+codegen-units = 64
+
+[profile.ctf_pst]
+inherits = "release"
+debug = "full"
+lto = "thin"
+panic = "abort"
+codegen-units = 16
+
+[profile.ctf_ftr]
+inherits = "ctf_pst"
+debug = "none"
+codegen-units = 4
+
+[features]
+default = []
+csmantle = []

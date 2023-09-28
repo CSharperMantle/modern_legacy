@@ -1,0 +1,10 @@
+{
+    "lldb.displayFormat": "hex",
+    "lldb.showDisassembly": "auto",
+    "lldb.dereferencePointers": true,
+    "lldb.consoleMode": "commands",
+    "rust-analyzer.check.command": "clippy",
+    "cSpell.words": [
+        "repr"
+    ]
+}
